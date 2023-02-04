@@ -11,6 +11,8 @@
   "property_name",
   "address",
   "property_type",
+  "property_price",
+  "discount",
   "column_break_wsf8",
   "image",
   "agent",
@@ -18,7 +20,9 @@
   "section_break_ocmo",
   "description",
   "section_break_tguc",
-  "amenities"
+  "amenities",
+  "pricing_section",
+  "grand_total"
  ],
  "fields": [
   {
@@ -86,11 +90,32 @@
    "label": "Status",
    "options": "\nSale\nRent\nLease",
    "reqd": 1
+  },
+  {
+   "fieldname": "property_price",
+   "fieldtype": "Currency",
+   "label": "Property Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Percent",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-03 12:48:06.658732",
+ "modified": "2023-02-04 18:54:46.992019",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",

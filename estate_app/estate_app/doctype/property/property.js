@@ -27,6 +27,29 @@ frappe.ui.form.on("Property", {
                     frm.refresh_field('amenities');
                 }
             }
+            // compute total 
+            frm.compute_total = function(frm, row){
+                let total = 0;
+                //loop through the child table
+                frm.doc.amenities.forEach(d => {
+                    total = total + d.amenity_price;
+                })
+                // new_total vlue 
+                let new_total = frm.doc.property_price + total;
+                if(frm.doc.discount){
+                    new_total = new_total - (new_total*(frm.doc.discount/100))
+                }
+                console.log(new_total);
+                //set grand_total
+                frm.set_value('grand_total', new_total);
+            },
+            // copy discount to amenities 
+            frm.copy_discount = function(frm){
+                frm.doc.amenities.forEach(d => {
+                    d.discount = frm.doc.discount;
+                })
+                frm.refresh_field('amenities');
+            }
     },
     
 
@@ -64,7 +87,14 @@ frappe.ui.form.on("Property", {
                 }
             })
         },"Action");
-	},
+	}, 
+    property_price: function(frm){
+        frm.compute_total(frm)
+    },
+    discount: function(frm){
+        frm.copy_discount(frm);
+        frm.compute_total(frm);
+    }
 });
 
 
@@ -73,7 +103,12 @@ frappe.ui.form.on('Property Amenity Detail',{
     amenity:function(frm, cdt, cdn){
         //grab the entire record
         let row = locals[cdt][cdn];
-        frm.check_flat_against_outdoor_kitchen(frm, row)
-        frm.check_amenities_duplicate(frm, row, row.amenity)
+        frm.check_flat_against_outdoor_kitchen(frm, row);
+        frm.check_amenities_duplicate(frm, row, row.amenity);
+        frm.compute_total(frm);
+    },
+    amenities_remove: function(frm, cdt, cdn){
+        frm.compute_total(frm);
+
     }
 })
