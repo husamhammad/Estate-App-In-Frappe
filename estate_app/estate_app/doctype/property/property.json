@@ -16,6 +16,7 @@
   "column_break_wsf8",
   "image",
   "agent",
+  "agent_name",
   "status",
   "section_break_ocmo",
   "description",
@@ -111,11 +112,18 @@
    "fieldname": "grand_total",
    "fieldtype": "Currency",
    "label": "Grand Total"
+  },
+  {
+   "fetch_from": "agent.agent_name",
+   "fieldname": "agent_name",
+   "fieldtype": "Data",
+   "label": "Agent Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-05 11:40:39.689632",
+ "modified": "2023-02-07 03:29:18.197159",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",
