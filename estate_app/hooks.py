@@ -119,21 +119,21 @@ doc_events = {
 # ---------------
 
 # scheduler_events = {
-#	"all": [
-#		"estate_app.tasks.all"
-#	],
-#	"daily": [
-#		"estate_app.tasks.daily"
-#	],
-#	"hourly": [
-#		"estate_app.tasks.hourly"
-#	],
-#	"weekly": [
-#		"estate_app.tasks.weekly"
-#	],
-#	"monthly": [
-#		"estate_app.tasks.monthly"
-#	],
+# 	"all": [
+# 		"estate_app.tasks.all"
+# 	],
+# 	"daily": [
+# 		"estate_app.tasks.daily"
+# 	],
+# 	"hourly": [
+# 		"estate_app.tasks.hourly"
+# 	],
+# 	"weekly": [
+# 		"estate_app.tasks.weekly"
+# 	],
+# 	"monthly": [
+# 		"estate_app.tasks.monthly"
+# 	],
 # }
 
 # Testing

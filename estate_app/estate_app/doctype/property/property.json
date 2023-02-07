@@ -43,6 +43,8 @@
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "label": "Image",
+   "print_hide": 1,
+   "report_hide": 1,
    "reqd": 1
   },
   {
@@ -123,7 +125,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-07 03:29:18.197159",
+ "modified": "2023-02-07 16:18:04.777811",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",
