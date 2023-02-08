@@ -27,9 +27,23 @@
     <link rel="stylesheet" href="/assets/estate_app/homeland/css/aos.css">
 
     <link rel="stylesheet" href="/assets/estate_app/homeland/css/style.css">
+    <link rel="icon" href="/assets/frappe/images/frappe-favicon.svg" type="image/x-icon">
+	<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/desk.bundle.46T4YG4B.css">
+    <link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/report.bundle.LSKTSU75.css">
+    <!-- Frappe Resources Head -->
     
+    <script>
+		window.frappe = {};
+		frappe.ready_events = [];
+		frappe.ready = function(fn) {
+			frappe.ready_events.push(fn);
+		}
+		window.dev_server = {{ dev_server }};
+		window.socketio_port = {{ (frappe.socketio_port or 'null') }};
+		window.show_language_picker = {{ show_language_picker or 'false' }};
+	</script>
   </head>
-  <body>
+  <body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {%- endif %} class="{{ body_class or ''}}">
   
   <div class="site-loader"></div>
   
@@ -175,8 +189,37 @@
     <script src="/assets/estate_app/homeland/js/jquery.magnific-popup.min.js"></script>
     <script src="/assets/estate_app/homeland/js/bootstrap-datepicker.min.js"></script>
     <script src="/assets/estate_app/homeland/js/aos.js"></script>
-  
     <script src="/assets/estate_app/homeland/js/main.js"></script>
       
+    <!-- frappe Resource -->
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/libs.bundle.ZFPPLQGN.js"></script>
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/desk.bundle.NUCLXHKP.js"></script>       
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/list.bundle.JGVNRVHQ.js"></script>
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/form.bundle.T53LXPNN.js"></script>
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/controls.bundle.VD4NVDDK.js"></script>   
+
+    <script type="text/javascript" src="/assets/frappe/dist/js/report.bundle.YLUEZIAH.js"></script>
+
+
+
+    <script>
+		frappe.boot = {'sysdefaults': {'float_precision': 3, 'date_format': 'dd-mm-yyyy', 'time_format': 'HH:mm:ss'}, 'time_zone': {'system': 'Asia/Gaza', 'user': 'Asia/Kolkata'}}
+		// for backward compatibility of some libs
+		frappe.sys_defaults = frappe.boot.sysdefaults;
+	</script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/frappe-web.bundle.LHQEA67I.js"></script>
+	
+	<script type="text/javascript" src="/website_script.js"></script>
+    <script>frappe.csrf_token = "{{frappe.session.csrf_token}}";</script>
+		
+
+	
+	
+	
     </body>
   </html>
