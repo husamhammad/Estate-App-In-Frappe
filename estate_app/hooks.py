@@ -1,4 +1,5 @@
 from . import __version__ as app_version
+from estate_app.route import routes 
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -45,11 +46,7 @@ app_license = "MIT"
 #	"Role": "home_page"
 # }
 
-website_route_rules =[
-    {'from_route':'/property/detail/<docname>', 'to_route':'property/detail'},
-    # {'from_route':'/agent/detail/<name>', 'to_route':'agent/detail'},
-
-]
+website_route_rules =  routes
 
 # Generators
 # ----------
